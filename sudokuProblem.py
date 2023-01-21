@@ -28,20 +28,6 @@ class sudokuProblem(object):
             for ind, value in zip(zero_indices, to_fill):
                 self.data[ind] = value
             
-    def view_results(self):
-
-        def notzero(s):
-            if s != 0: return str(s)
-            if s == 0: return "'"
-            
-        results = np.array([self.data[self.getRowIndex(j, type="row index")] for j in range(9)])
-        out_s = ""
-        for i, row in enumerate(results):
-            if i%3==0: 
-                out_s += "="*25+'\n'
-            out_s += "| " + " | ".join([" ".join(notzero(s) for s in list(row)[3*(k-1):3*k]) for k in range(1,4)]) + " |\n"
-        out_s = out_s + "="*25+'\n'
-        print (out_s)
         
     def score_board(self):
         score = 0
